@@ -105,16 +105,15 @@ namespace SingleResponsibilityPrinciple
         private void StoreTrades(IEnumerable<TradeRecord> trades)
         {
             LogMessage("INFO: Connecting to database");
-            // The first connection string uses |DataDirectory| 
+            // The connection string uses |DataDirectory| 
             //    and assumes the tradedatabase.mdf file is stored in 
             //    SingleResponsibilityPrinciple\bin\Debug 
-            //    using (var connection = new System.Data.SqlClient.SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\tradedatabase.mdf;Integrated Security=True;Connect Timeout=30;"))
+            using (var connection = new System.Data.SqlClient.SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\tradedatabase.mdf;Integrated Security=True;Connect Timeout=30;"))
             // Template for connection string from database connection file
             //    The @ sign allows for back slashes
             //    Watch for double quotes which must be escaped using "" 
             //    Watch for extra spaces after C: and avoid paths with - hyphens -
-            using (var connection = new System.Data.SqlClient.SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\tgibbons\source\repos\cis-3285-asg-8-tgibbons-css\tradedatabase.mdf"";Integrated Security=True;Connect Timeout=30;"))
-            //using (var connection = new System.Data.SqlClient.SqlConnection("Data Source=(local);Initial Catalog=TradeDatabase;Integrated Security=True;"))
+            // using (var connection = new System.Data.SqlClient.SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\tgibbons\source\repos\cis-3285-asg-8-tgibbons-css\tradedatabase.mdf"";Integrated Security=True;Connect Timeout=30;"))
             {
                 connection.Open();
                 using (var transaction = connection.BeginTransaction())

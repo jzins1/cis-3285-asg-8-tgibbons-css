@@ -16,8 +16,10 @@ namespace SingleResponsibilityPrinciple.Tests
     {
         private int CountDbRecords()
         {
-            using (var connection = new System.Data.SqlClient.SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\tgibbons\source\repos\cis-3285-asg-8-tgibbons-css\tradedatabase.mdf"";Integrated Security=True;Connect Timeout=30;"))
-            //using (var connection = new System.Data.SqlClient.SqlConnection("Data Source=(local);Initial Catalog=TradeDatabase;Integrated Security=True;"))
+            // The connection string uses |DataDirectory| 
+            //    and assumes the tradedatabase.mdf file is stored in 
+            //    SingleResponsibilityPrinciple\bin\Debug 
+            using (var connection = new System.Data.SqlClient.SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\tradedatabase.mdf;Integrated Security=True;Connect Timeout=30;"))
             {
                 if (connection.State == ConnectionState.Closed)
                 {
