@@ -27,7 +27,6 @@ namespace SingleResponsibilityPrinciple.Tests
                 }
                 string myScalarQuery = "SELECT COUNT(*) FROM trade";
                 SqlCommand myCommand = new SqlCommand(myScalarQuery, connection);
-                myCommand.Connection.Open();
                 int count = (int)myCommand.ExecuteScalar();
                 connection.Close();
                 return count;

@@ -63,16 +63,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple.csproj">
-      <Project>{F850FD91-C460-4B0B-B662-4113C5A6C6A7}</Project>
-      <Name>SingleResponsibilityPrinciple</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="goodtrades.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="badtrades.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple.csproj">
+      <Project>{f850fd91-c460-4b0b-b662-4113c5a6c6a7}</Project>
+      <Name>SingleResponsibilityPrinciple</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
