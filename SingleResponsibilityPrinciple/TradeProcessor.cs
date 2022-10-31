@@ -10,7 +10,7 @@ namespace SingleResponsibilityPrinciple
 {
     public class TradeProcessor
     {
-        private IEnumerable<string> ReadTradeData(Stream stream)
+        public IEnumerable<string> ReadTradeData(Stream stream)
         {
             var tradeData = new List<string>();
             using (var reader = new StreamReader(stream))
@@ -108,7 +108,8 @@ namespace SingleResponsibilityPrinciple
             // The connection string uses |DataDirectory| 
             //    and assumes the tradedatabase.mdf file is stored in 
             //    SingleResponsibilityPrinciple\bin\Debug 
-            using (var connection = new System.Data.SqlClient.SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\tradedatabase.mdf;Integrated Security=True;Connect Timeout=30;"))
+            //using (var connection = new System.Data.SqlClient.SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\tradedatabase.mdf;Integrated Security=True;Connect Timeout=30;"))
+            using (var connection = new System.Data.SqlClient.SqlConnection(@"Server=tcp:cis3115-server.database.windows.net,1433;Initial Catalog=CIS3115;Persist Security Info=False;User ID=cis3115;Password=Saints4SQL;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30"))
             // Template for connection string from database connection file
             //    The @ sign allows for back slashes
             //    Watch for double quotes which must be escaped using "" 

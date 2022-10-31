@@ -66,13 +66,25 @@
     <EmbeddedResource Include="goodtrades.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="badtrades.txt" />
+    <EmbeddedResource Include="badtradesnegativeprice.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple.csproj">
       <Project>{f850fd91-c460-4b0b-b662-4113c5a6c6a7}</Project>
       <Name>SingleResponsibilityPrinciple</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="goodtradessingletrade.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="notrades.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="badtradesinvalidinteger.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="goodtradeslinematch.txt" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
