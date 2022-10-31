@@ -79,6 +79,13 @@ namespace SingleResponsibilityPrinciple
                 return false;
             }
 
+            // User story 2 implementation:
+            if(decimal.Parse(fields[2]) < 0)
+            {
+                LogMessage("WARN: Trade price on line {0} is negative: '{1}'", currentLine, fields[2]);
+                return false;
+            }
+
             return true;
         }
 
@@ -150,6 +157,7 @@ namespace SingleResponsibilityPrinciple
             var lines = ReadTradeData(stream);
             var trades = ParseTrades(lines);
             // User story 1 implementation:
+            // User story 2 implementation:
             if (shouldProcess)
             {
                 StoreTrades(trades);
