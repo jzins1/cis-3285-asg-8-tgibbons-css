@@ -10,6 +10,8 @@ namespace SingleResponsibilityPrinciple
 {
     public class TradeProcessor
     {
+        // User story 1 implementation:
+        bool shouldProcess = true;
         public IEnumerable<string> ReadTradeData(Stream stream)
         {
             var tradeData = new List<string>();
@@ -34,6 +36,8 @@ namespace SingleResponsibilityPrinciple
 
                 if (!ValidateTradeData(fields, lineCount))
                 {
+                    // User story 1 implementation:
+                    shouldProcess = false;
                     continue;
                 }
 
@@ -145,7 +149,11 @@ namespace SingleResponsibilityPrinciple
         {
             var lines = ReadTradeData(stream);
             var trades = ParseTrades(lines);
-            StoreTrades(trades);
+            // User story 1 implementation:
+            if (shouldProcess)
+            {
+                StoreTrades(trades);
+            }
         }
 
     }
